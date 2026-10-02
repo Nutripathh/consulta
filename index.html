@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lic. Nombre Apellido | Nutrición Integral</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --verde-oscuro:#3f5a4d;
+    --verde-medio:#7a9b8a;
+    --verde-claro:#e8efe9;
+    --crema:#faf8f4;
+    --texto:#2c332e;
+    --texto-suave:#5f6b64;
+    --blanco:#ffffff;
+    --borde:#dbe3dd;
+    --radio:10px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Inter',sans-serif;
+    color:var(--texto);
+    background:var(--crema);
+    line-height:1.6;
+  }
+  h1,h2,h3{font-family:'Fraunces',serif;font-weight:600;line-height:1.2;}
+  a{text-decoration:none;color:inherit;}
+  ul{list-style:none;}
+  img{max-width:100%;display:block;}
+  .contenedor{max-width:1100px;margin:0 auto;padding:0 24px;}
+  section{padding:96px 0;}
+  .boton{
+    display:inline-block;
+    padding:14px 30px;
+    background:var(--verde-oscuro);
+    color:var(--blanco);
+    border-radius:var(--radio);
+    font-weight:500;
+    border:none;
+    cursor:pointer;
+    font-size:1rem;
+    transition:background .2s ease;
+  }
+  .boton:hover{background:#334a3f;}
+  .boton-linea{
+    display:inline-block;
+    padding:12px 26px;
+    border:1.5px solid var(--verde-oscuro);
+    border-radius:var(--radio);
+    color:var(--verde-oscuro);
+    font-weight:500;
+  }
+  .etiqueta{color:var(--verde-medio);font-weight:500;font-size:.95rem;}
+
+  /* HEADER */
+  header{
+    position:sticky;top:0;z-index:100;
+    background:rgba(250,248,244,.92);
+    backdrop-filter:blur(6px);
+    border-bottom:1px solid var(--borde);
+  }
+  .nav{
+    display:flex;align-items:center;justify-content:space-between;
+    padding:18px 24px;max-width:1100px;margin:0 auto;
+  }
+  .logo{font-family:'Fraunces',serif;font-size:1.3rem;font-weight:600;}
+  .nav-links{display:flex;gap:32px;align-items:center;}
+  .nav-links a{font-size:.95rem;font-weight:500;}
+  .menu-toggle{display:none;background:none;border:none;font-size:1.6rem;cursor:pointer;}
+
+  /* HERO */
+  .hero{
+    display:grid;grid-template-columns:1.1fr 1fr;gap:56px;align-items:center;
+    padding:110px 0 90px;
+  }
+  .hero h1{font-size:2.6rem;margin-bottom:20px;color:var(--verde-oscuro);}
+  .hero p{color:var(--texto-suave);font-size:1.1rem;margin-bottom:32px;max-width:46ch;}
+  .hero-img{
+    aspect-ratio:4/5;background:var(--verde-claro);border-radius:16px;
+    display:flex;align-items:center;justify-content:center;
+    color:var(--verde-medio);font-size:.9rem;text-align:center;padding:20px;
+    border:1px dashed var(--verde-medio);
+  }
+
+  /* SOBRE MI */
+  #sobre-mi{background:var(--blanco);}
+  .sobre-mi-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:60px;align-items:start;}
+  .foto-placeholder{
+    aspect-ratio:1/1;background:var(--verde-claro);border-radius:16px;
+    display:flex;align-items:center;justify-content:center;color:var(--verde-medio);
+    font-size:.9rem;text-align:center;padding:20px;border:1px dashed var(--verde-medio);
+  }
+  .sobre-mi-grid h2{font-size:2rem;margin-bottom:18px;color:var(--verde-oscuro);}
+  .sobre-mi-grid p{color:var(--texto-suave);margin-bottom:16px;}
+  .credencial{
+    margin-top:20px;padding:16px 20px;background:var(--verde-claro);
+    border-radius:var(--radio);font-size:.9rem;color:var(--verde-oscuro);
+  }
+
+  /* SERVICIOS */
+  .servicios-titulo{text-align:center;max-width:600px;margin:0 auto 56px;}
+  .servicios-titulo h2{font-size:2rem;color:var(--verde-oscuro);margin-bottom:12px;}
+  .servicios-titulo p{color:var(--texto-suave);}
+  .grid-servicios{
+    display:grid;grid-template-columns:repeat(4,1fr);gap:24px;
+  }
+  .card{
+    background:var(--blanco);border:1px solid var(--borde);border-radius:var(--radio);
+    padding:32px 24px;
+  }
+  .card h3{font-size:1.15rem;margin-bottom:10px;color:var(--verde-oscuro);}
+  .card p{color:var(--texto-suave);font-size:.95rem;}
+
+  /* ENFOQUE / TESTIMONIOS */
+  #enfoque{background:var(--verde-oscuro);color:var(--blanco);}
+  #enfoque .servicios-titulo p{color:#cfdcd4;}
+  #enfoque .servicios-titulo h2{color:var(--blanco);}
+  .pilares{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;margin-bottom:64px;}
+  .pilar h3{font-size:1.1rem;margin-bottom:8px;}
+  .pilar p{color:#cfdcd4;font-size:.95rem;}
+  .testimonios{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;}
+  .testimonio{
+    background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.15);
+    border-radius:var(--radio);padding:26px;
+  }
+  .testimonio p{font-size:.95rem;color:#e6ece9;margin-bottom:14px;}
+  .testimonio span{font-size:.85rem;color:#a9c1b6;}
+
+  /* CONTACTO */
+  .contacto-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;}
+  .contacto-grid h2{font-size:2rem;color:var(--verde-oscuro);margin-bottom:16px;}
+  .contacto-grid > div > p{color:var(--texto-suave);margin-bottom:28px;}
+  .accesos{display:flex;flex-direction:column;gap:14px;}
+  .acceso{
+    display:flex;align-items:center;gap:12px;padding:14px 18px;
+    background:var(--blanco);border:1px solid var(--borde);border-radius:var(--radio);
+    font-weight:500;
+  }
+  form{display:flex;flex-direction:column;gap:14px;}
+  input,textarea{
+    width:100%;padding:13px 16px;border:1px solid var(--borde);border-radius:var(--radio);
+    font-family:inherit;font-size:.95rem;background:var(--blanco);
+  }
+  textarea{resize:vertical;min-height:110px;}
+  input:focus,textarea:focus{outline:2px solid var(--verde-medio);outline-offset:1px;}
+
+  /* FOOTER */
+  footer{
+    background:#2c332e;color:#c7d1cb;padding:44px 0;font-size:.9rem;
+  }
+  .footer-grid{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;}
+  .footer-links{display:flex;gap:20px;}
+  .footer-links a:hover{color:var(--blanco);}
+
+  @media(max-width:860px){
+    .hero{grid-template-columns:1fr;padding-top:60px;}
+    .hero-img{order:-1;}
+    .sobre-mi-grid{grid-template-columns:1fr;}
+    .grid-servicios{grid-template-columns:repeat(2,1fr);}
+    .pilares{grid-template-columns:1fr;}
+    .testimonios{grid-template-columns:1fr;}
+    .contacto-grid{grid-template-columns:1fr;}
+    section{padding:64px 0;}
+  }
+  @media(max-width:600px){
+    .nav-links{
+      position:fixed;top:64px;left:0;right:0;background:var(--crema);
+      flex-direction:column;padding:20px 24px;gap:18px;
+      border-bottom:1px solid var(--borde);
+      display:none;
+    }
+    .nav-links.abierto{display:flex;}
+    .menu-toggle{display:block;}
+    .grid-servicios{grid-template-columns:1fr;}
+    .hero h1{font-size:2rem;}
+  }
+</style>
+</head>
+<body>
+
+<!-- ===== HEADER ===== -->
+<header>
+  <nav class="nav">
+    <!-- Reemplazá "Lic. Nombre Apellido" por tu nombre o logo -->
+    <a href="#" class="logo">Nutripath</a>
+    <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú">&#9776;</button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#sobre-mi">Sobre mí</a></li>
+      <li><a href="#servicios">Servicios</a></li>
+      <li><a href="#enfoque">Enfoque</a></li>
+      <li><a href="#contacto">Contacto</a></li>
+      <li><a href="#contacto" class="boton">Agendar Consulta</a></li>
+    </ul>
+  </nav>
+</header>
+
+<!-- ===== HERO ===== -->
+<section class="hero contenedor">
+  <div>
+    <span class="etiqueta">Nutrición basada en evidencia</span>
+    <h1>Transformamos tu relación con la alimentación de forma sostenible</h1>
+    <!-- Reemplazá esta bajada por tu propia propuesta de valor -->
+    <p>Somos un equipo de 3 nutricionistas especializados en acompañamiento personalizado, sin dietas restrictivas, enfocado en hábitos que puedas sostener en el tiempo.</p>
+    <a href="#contacto" class="boton">Reservar mi primera consulta</a>
+  </div>
+  <div class="hero-img" style="padding:0;overflow:hidden;">
+    <img src="https://images.unsplash.com/photo-1761933797857-ad5f7de3bc0b?w=900&q=80&auto=format&fit=crop" alt="Equipo Nutripath" style="width:100%;height:100%;object-fit:cover;">
+  </div>
+</section>
+
+<!-- ===== SOBRE MI ===== -->
+<section id="sobre-mi">
+  <div class="contenedor sobre-mi-grid">
+    <div class="foto-placeholder" style="padding:0;overflow:hidden;">
+      <img src="https://images.unsplash.com/photo-1559523182-a284c3fb7cff?w=800&q=80&auto=format&fit=crop" alt="Equipo profesional Nutripath" style="width:100%;height:100%;object-fit:cover;">
+    </div>
+    <div>
+      <h2>Sobre nosotros</h2>
+      <!-- Editá esta presentación con la historia y enfoque de tu equipo -->
+      <p>Somos Nutripath: un equipo de 3 Licenciados en Nutrición con más de X años de experiencia acompañando a personas a mejorar su salud sin recurrir a dietas restrictivas ni prohibiciones.</p>
+      <p>Nuestro trabajo se centra en la salud integral: alimentación, hábitos, descanso y bienestar emocional, adaptando cada plan a la vida real de cada paciente.</p>
+      <div class="credencial">
+        <!-- Reemplazá por las matrículas profesionales reales de cada integrante -->
+        M.N./M.P. N.º 00000, 00001, 00002 — Colegio de Nutricionistas
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SERVICIOS ===== -->
+<section id="servicios">
+  <div class="contenedor">
+    <div class="servicios-titulo">
+      <h2>Servicios</h2>
+      <p>Modalidades de acompañamiento adaptadas a tu momento y objetivos.</p>
+    </div>
+    <div class="grid-servicios">
+      <div class="card">
+        <h3>Consulta presencial</h3>
+        <p>Encuentro individual en consultorio para una evaluación completa.</p>
+      </div>
+      <div class="card">
+        <h3>Consulta online</h3>
+        <p>Seguimiento por videollamada, con la misma calidez que en persona.</p>
+      </div>
+      <div class="card">
+        <h3>Planes personalizados</h3>
+        <p>Guías de alimentación adaptadas a tus gustos, rutina y objetivos.</p>
+      </div>
+      <div class="card">
+        <h3>Talleres grupales</h3>
+        <p>Espacios educativos sobre alimentación consciente y hábitos saludables.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== ENFOQUE / TESTIMONIOS ===== -->
+<section id="enfoque">
+  <div class="contenedor">
+    <div class="servicios-titulo">
+      <h2>Mi método de trabajo</h2>
+      <p>Tres pilares que guían cada acompañamiento.</p>
+    </div>
+    <div class="pilares">
+      <div class="pilar">
+        <h3>Sin dietas restrictivas</h3>
+        <p>Trabajamos con tu alimentación real, no con prohibiciones imposibles de sostener.</p>
+      </div>
+      <div class="pilar">
+        <h3>Salud integral</h3>
+        <p>El cuerpo, la mente y los hábitos se abordan como un todo, no por separado.</p>
+      </div>
+      <div class="pilar">
+        <h3>Acompañamiento real</h3>
+        <p>Seguimiento cercano y ajustes constantes según cómo vas evolucionando.</p>
+      </div>
+    </div>
+    <!-- Reemplazá estos testimonios por opiniones reales de pacientes -->
+    <div class="testimonios">
+      <div class="testimonio">
+        <p>"Cambié mi forma de comer sin sentir que me estaba privando de nada. El acompañamiento fue clave."</p>
+        <span>— Nombre del/la paciente</span>
+      </div>
+      <div class="testimonio">
+        <p>"Por primera vez sentí que un plan de alimentación se adaptaba a mi vida, y no al revés."</p>
+        <span>— Nombre del/la paciente</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CONTACTO ===== -->
+<section id="contacto">
+  <div class="contenedor contacto-grid">
+    <div>
+      <h2>Reservá tu consulta con nuestro equipo</h2>
+      <p>Completá el formulario y te responderemos a la brevedad, o escribinos directo por WhatsApp.</p>
+      <div class="accesos">
+        <!-- Reemplazá el número por tu WhatsApp con código de país, sin espacios ni signos -->
+        <a class="acceso" href="https://wa.me/5491122702187" target="_blank" rel="noopener">📱 WhatsApp directo</a>
+        <!-- Reemplazá por tus redes reales -->
+        <a class="acceso" href="https://instagram.com/guillee_ggg" target="_blank" rel="noopener">📷 Instagram</a>
+        <a class="acceso" href="mailto:tuemail@ejemplo.com">✉️ tuemail@ejemplo.com</a>
+      </div>
+    </div>
+    <!-- Formulario simple: para que envíe emails reales, conectalo a un servicio como Formspree o similar -->
+    <form onsubmit="alert('Formulario de ejemplo: conectar a un servicio de envío real.'); return false;">
+      <input type="text" placeholder="Nombre" required>
+      <input type="email" placeholder="Email" required>
+      <input type="tel" placeholder="Teléfono">
+      <textarea placeholder="Mensaje"></textarea>
+      <button type="submit" class="boton">Enviar mensaje</button>
+    </form>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <div class="contenedor footer-grid">
+    <!-- Reemplazá el año/nombre/matrícula -->
+    <p>© 2026 Nutripath — Equipo de Nutrición</p>
+    <div class="footer-links">
+      <a href="https://instagram.com/guillee_ggg" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://wa.me/5491122702187" target="_blank" rel="noopener">WhatsApp</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Menú hamburguesa para mobile
+  const toggle = document.getElementById('menuToggle');
+  const links = document.getElementById('navLinks');
+  toggle.addEventListener('click', () => links.classList.toggle('abierto'));
+  links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => links.classList.remove('abierto')));
+</script>
+
+</body>
+</html>
